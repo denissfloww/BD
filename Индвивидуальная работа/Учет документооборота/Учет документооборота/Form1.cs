@@ -19,6 +19,8 @@ namespace Учет_документооборота
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.Исполнители". При необходимости она может быть перемещена или удалена.
+            this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.Подразделение". При необходимости она может быть перемещена или удалена.
             this.подразделениеTableAdapter.Fill(this.dBDataSet.Подразделение);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.Тип_документа". При необходимости она может быть перемещена или удалена.
@@ -59,6 +61,13 @@ namespace Учет_документооборота
         private void bindingNavigatorAddNewItem2_Click(object sender, EventArgs e)
         {
             unitsTextBox.Focus();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            string dsf = comboBox1.SelectedIndex.ToString();
+            var sdfsdf = comboBox1.Items;
+
         }
     }
 }

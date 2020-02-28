@@ -1097,6 +1097,8 @@ namespace Учет_документооборота {
             
             private global::System.Data.DataColumn columnKod_P;
             
+            private global::System.Data.DataColumn columnP;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ИсполнителиDataTable() {
@@ -1156,6 +1158,14 @@ namespace Учет_документооборота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PColumn {
+                get {
+                    return this.columnP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1191,12 +1201,13 @@ namespace Учет_документооборота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ИсполнителиRow AddИсполнителиRow(string I, ПодразделениеRow parentПодразделениеRowByFK_Исполнители_Подразделение1) {
+            public ИсполнителиRow AddИсполнителиRow(string I, ПодразделениеRow parentПодразделениеRowByFK_Исполнители_Подразделение1, string P) {
                 ИсполнителиRow rowИсполнителиRow = ((ИсполнителиRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         I,
-                        null};
+                        null,
+                        P};
                 if ((parentПодразделениеRowByFK_Исполнители_Подразделение1 != null)) {
                     columnValuesArray[2] = parentПодразделениеRowByFK_Исполнители_Подразделение1[0];
                 }
@@ -1232,6 +1243,7 @@ namespace Учет_документооборота {
                 this.columnKI = base.Columns["KI"];
                 this.columnI = base.Columns["I"];
                 this.columnKod_P = base.Columns["Kod_P"];
+                this.columnP = base.Columns["P"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1243,6 +1255,8 @@ namespace Учет_документооборота {
                 base.Columns.Add(this.columnI);
                 this.columnKod_P = new global::System.Data.DataColumn("Kod_P", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKod_P);
+                this.columnP = new global::System.Data.DataColumn("P", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnP);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnKI}, true));
                 this.columnKI.AutoIncrement = true;
@@ -1253,6 +1267,7 @@ namespace Учет_документооборота {
                 this.columnKI.Unique = true;
                 this.columnI.MaxLength = 255;
                 this.columnKod_P.AllowDBNull = false;
+                this.columnP.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2562,6 +2577,22 @@ namespace Учет_документооборота {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string P {
+                get {
+                    try {
+                        return ((string)(this[this.tableИсполнители.PColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'P\' в таблице \'Исполнители\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableИсполнители.PColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ПодразделениеRow ПодразделениеRow {
                 get {
                     return ((ПодразделениеRow)(this.GetParentRow(this.Table.ParentRelations["FK_Исполнители_Подразделение1"])));
@@ -2581,6 +2612,18 @@ namespace Учет_документооборота {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetINull() {
                 this[this.tableИсполнители.IColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPNull() {
+                return this.IsNull(this.tableИсполнители.PColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPNull() {
+                this[this.tableИсполнители.PColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3997,36 +4040,8 @@ SELECT KD, ND, Kod_A, Kod_T, D FROM Документы WHERE (KD = @KD)";
             tableMapping.ColumnMappings.Add("KI", "KI");
             tableMapping.ColumnMappings.Add("I", "I");
             tableMapping.ColumnMappings.Add("Kod_P", "Kod_P");
+            tableMapping.ColumnMappings.Add("P", "P");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Исполнители] WHERE (([KI] = @Original_KI) AND ((@IsNull_I = 1 " +
-                "AND [I] IS NULL) OR ([I] = @Original_I)) AND ([Kod_P] = @Original_Kod_P))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_I", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "I", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_I", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "I", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kod_P", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kod_P", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Исполнители] ([I], [Kod_P]) VALUES (@I, @Kod_P);\r\nSELECT KI, I" +
-                ", Kod_P FROM Исполнители WHERE (KI = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@I", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "I", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kod_P", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kod_P", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Исполнители] SET [I] = @I, [Kod_P] = @Kod_P WHERE (([KI] = @Origina" +
-                "l_KI) AND ((@IsNull_I = 1 AND [I] IS NULL) OR ([I] = @Original_I)) AND ([Kod_P] " +
-                "= @Original_Kod_P));\r\nSELECT KI, I, Kod_P FROM Исполнители WHERE (KI = @KI)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@I", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "I", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kod_P", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kod_P", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_I", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "I", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_I", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "I", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kod_P", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kod_P", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KI", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "KI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4042,7 +4057,9 @@ SELECT KD, ND, Kod_A, Kod_T, D FROM Документы WHERE (KD = @KD)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT KI, I, Kod_P FROM dbo.Исполнители";
+            this._commandCollection[0].CommandText = "SELECT        Исполнители.KI, Исполнители.I, Исполнители.Kod_P, Подразделение.P\r\n" +
+                "FROM            Исполнители INNER JOIN\r\n                         Подразделение O" +
+                "N Исполнители.Kod_P = Подразделение.KP";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4068,141 +4085,6 @@ SELECT KD, ND, Kod_A, Kod_T, D FROM Документы WHERE (KD = @KD)";
             DBDataSet.ИсполнителиDataTable dataTable = new DBDataSet.ИсполнителиDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet.ИсполнителиDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Исполнители");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_KI, string Original_I, int Original_Kod_P) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_KI));
-            if ((Original_I == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_I));
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Kod_P));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string I, int Kod_P) {
-            if ((I == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(I));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Kod_P));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string I, int Kod_P, int Original_KI, string Original_I, int Original_Kod_P, int KI) {
-            if ((I == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(I));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Kod_P));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_KI));
-            if ((Original_I == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_I));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Kod_P));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(KI));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string I, int Kod_P, int Original_KI, string Original_I, int Original_Kod_P) {
-            return this.Update(I, Kod_P, Original_KI, Original_I, Original_Kod_P, Original_KI);
         }
     }
     
@@ -5333,8 +5215,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
         
         private ДокументыTableAdapter _документыTableAdapter;
         
-        private ИсполнителиTableAdapter _исполнителиTableAdapter;
-        
         private ПодразделениеTableAdapter _подразделениеTableAdapter;
         
         private ПорученияTableAdapter _порученияTableAdapter;
@@ -5381,20 +5261,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
             }
             set {
                 this._документыTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ИсполнителиTableAdapter ИсполнителиTableAdapter {
-            get {
-                return this._исполнителиTableAdapter;
-            }
-            set {
-                this._исполнителиTableAdapter = value;
             }
         }
         
@@ -5467,10 +5333,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                             && (this._документыTableAdapter.Connection != null))) {
                     return this._документыTableAdapter.Connection;
                 }
-                if (((this._исполнителиTableAdapter != null) 
-                            && (this._исполнителиTableAdapter.Connection != null))) {
-                    return this._исполнителиTableAdapter.Connection;
-                }
                 if (((this._подразделениеTableAdapter != null) 
                             && (this._подразделениеTableAdapter.Connection != null))) {
                     return this._подразделениеTableAdapter.Connection;
@@ -5500,9 +5362,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                     count = (count + 1);
                 }
                 if ((this._документыTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._исполнителиTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._подразделениеTableAdapter != null)) {
@@ -5549,15 +5408,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._документыTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._исполнителиTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Исполнители.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._исполнителиTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5613,14 +5463,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._исполнителиTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Исполнители.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._исполнителиTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._подразделениеTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Подразделение.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5660,14 +5502,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._подразделениеTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._исполнителиTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Исполнители.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._исполнителиTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5744,11 +5578,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._исполнителиTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._исполнителиTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             if (((this._подразделениеTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._подразделениеTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -5812,15 +5641,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                     if (this._документыTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._документыTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._документыTableAdapter.Adapter);
-                    }
-                }
-                if ((this._исполнителиTableAdapter != null)) {
-                    revertConnections.Add(this._исполнителиTableAdapter, this._исполнителиTableAdapter.Connection);
-                    this._исполнителиTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._исполнителиTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._исполнителиTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._исполнителиTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._исполнителиTableAdapter.Adapter);
                     }
                 }
                 if ((this._подразделениеTableAdapter != null)) {
@@ -5915,10 +5735,6 @@ SELECT N, Kod_D, PO, Kod_I, DP, DI FROM Поручения WHERE (N = @N)";
                 if ((this._документыTableAdapter != null)) {
                     this._документыTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._документыTableAdapter]));
                     this._документыTableAdapter.Transaction = null;
-                }
-                if ((this._исполнителиTableAdapter != null)) {
-                    this._исполнителиTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._исполнителиTableAdapter]));
-                    this._исполнителиTableAdapter.Transaction = null;
                 }
                 if ((this._подразделениеTableAdapter != null)) {
                     this._подразделениеTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._подразделениеTableAdapter]));
