@@ -113,13 +113,13 @@
             this.bindingNavigatorMoveLastItem3 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.исполнителиBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.подразделениеBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.kIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kodPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.исполнителиBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.авторыTableAdapter = new Учет_документооборота.DBDataSetTableAdapters.АвторыTableAdapter();
             this.тип_документаTableAdapter = new Учет_документооборота.DBDataSetTableAdapters.Тип_документаTableAdapter();
             this.подразделениеTableAdapter = new Учет_документооборота.DBDataSetTableAdapters.ПодразделениеTableAdapter();
@@ -151,9 +151,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.подразделениеBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKИсполнителиПодразделение1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -319,7 +319,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -486,7 +485,6 @@
             // 
             this.bindingNavigatorPositionItem1.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem1.AutoSize = false;
-            this.bindingNavigatorPositionItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
             this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem1.Text = "0";
@@ -691,7 +689,6 @@
             // 
             this.bindingNavigatorPositionItem2.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem2.AutoSize = false;
-            this.bindingNavigatorPositionItem2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem2.Name = "bindingNavigatorPositionItem2";
             this.bindingNavigatorPositionItem2.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem2.Text = "0";
@@ -915,7 +912,6 @@
             // 
             this.bindingNavigatorPositionItem3.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem3.AutoSize = false;
-            this.bindingNavigatorPositionItem3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem3.Name = "bindingNavigatorPositionItem3";
             this.bindingNavigatorPositionItem3.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem3.Text = "0";
@@ -961,6 +957,11 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "KP";
             // 
+            // исполнителиBindingSource2
+            // 
+            this.исполнителиBindingSource2.DataMember = "Исполнители";
+            this.исполнителиBindingSource2.DataSource = this.bindingSource1;
+            // 
             // подразделениеBindingSource1
             // 
             this.подразделениеBindingSource1.DataMember = "Подразделение";
@@ -968,6 +969,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1011,11 +1014,6 @@
             this.P.HeaderText = "P";
             this.P.Name = "P";
             this.P.ReadOnly = true;
-            // 
-            // исполнителиBindingSource2
-            // 
-            this.исполнителиBindingSource2.DataMember = "Исполнители";
-            this.исполнителиBindingSource2.DataSource = this.bindingSource1;
             // 
             // авторыTableAdapter
             // 
@@ -1088,9 +1086,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.подразделениеBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKИсполнителиПодразделение1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource1)).EndInit();
             this.ResumeLayout(false);

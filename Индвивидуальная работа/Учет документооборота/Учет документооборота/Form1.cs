@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Учет_документооборота
 {
@@ -62,11 +63,15 @@ namespace Учет_документооборота
         {
             unitsTextBox.Focus();
         }
-
+        //Data Source=LAPTOP-H7SB8JUI\SQLEXPRESS;Initial Catalog=DB;Integrated Security=True
         private void button1_Click_2(object sender, EventArgs e)
-        {
-            string dsf = comboBox1.SelectedIndex.ToString();
-            var sdfsdf = comboBox1.Items;
+        {                   
+            String connectionString = "Data Source=LAPTOP-H7SB8JUI\\SQLEXPRESS;Initial Catalog=DB;Integrated Security=True";
+            var connect = new SqlConnection(connectionString);
+            connect.Open();
+            string idUnits = comboBox1.SelectedValue.ToString();
+            //string sqlQuery = "UPDATE ";
+
 
         }
     }
