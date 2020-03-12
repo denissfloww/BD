@@ -69,9 +69,17 @@ namespace Учет_документооборота
             String connectionString = "Data Source=LAPTOP-H7SB8JUI\\SQLEXPRESS;Initial Catalog=DB;Integrated Security=True";
             var connect = new SqlConnection(connectionString);
             connect.Open();
-            string idUnits = comboBox1.SelectedValue.ToString();
-            //string sqlQuery = "UPDATE ";
+            string idUnits = comboBox1.SelectedValue.ToString();         
+            string sqlQuery = $"UPDATE dbo.Исполнители SET I='{textBox1.Text}',Kod_P='{idUnits}' WHERE KI='{textBox2.Text}'";
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sqlQuery;
+            command.ExecuteNonQuery();
+            connect.Close();
+            this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
+        }
 
+        private void bindingNavigatorAddNewItem3_Click(object sender, EventArgs e)
+        {
 
         }
     }
