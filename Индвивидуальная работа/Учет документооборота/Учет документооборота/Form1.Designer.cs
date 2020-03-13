@@ -97,10 +97,16 @@
             this.kPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.исполнителиBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.подразделениеBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem3 = new System.Windows.Forms.ToolStripButton();
             this.исполнителиBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -114,8 +120,6 @@
             this.bindingNavigatorMoveNextItem3 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem3 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.подразделениеBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.kIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,10 +131,6 @@
             this.исполнителиTableAdapter = new Учет_документооборота.DBDataSetTableAdapters.ИсполнителиTableAdapter();
             this.fKИсполнителиПодразделение1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.исполнителиBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.authors.SuspendLayout();
             this.authorsGroupBox.SuspendLayout();
@@ -153,15 +153,15 @@
             this.unitsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsDataGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.подразделениеBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.подразделениеBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKИсполнителиПодразделение1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -184,7 +184,7 @@
             this.authors.Location = new System.Drawing.Point(4, 22);
             this.authors.Name = "authors";
             this.authors.Padding = new System.Windows.Forms.Padding(3);
-            this.authors.Size = new System.Drawing.Size(675, 450);
+            this.authors.Size = new System.Drawing.Size(675, 511);
             this.authors.TabIndex = 0;
             this.authors.Text = "Авторы";
             this.authors.UseVisualStyleBackColor = true;
@@ -325,6 +325,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -399,7 +400,7 @@
             this.documentType.Location = new System.Drawing.Point(4, 22);
             this.documentType.Name = "documentType";
             this.documentType.Padding = new System.Windows.Forms.Padding(3);
-            this.documentType.Size = new System.Drawing.Size(675, 450);
+            this.documentType.Size = new System.Drawing.Size(675, 511);
             this.documentType.TabIndex = 1;
             this.documentType.Text = "Тип документа";
             this.documentType.UseVisualStyleBackColor = true;
@@ -491,6 +492,7 @@
             // 
             this.bindingNavigatorPositionItem1.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem1.AutoSize = false;
+            this.bindingNavigatorPositionItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
             this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem1.Text = "0";
@@ -603,7 +605,7 @@
             this.units.Controls.Add(this.unitsDataGridView);
             this.units.Location = new System.Drawing.Point(4, 22);
             this.units.Name = "units";
-            this.units.Size = new System.Drawing.Size(675, 450);
+            this.units.Size = new System.Drawing.Size(675, 511);
             this.units.TabIndex = 2;
             this.units.Text = "Подразделения";
             this.units.UseVisualStyleBackColor = true;
@@ -695,6 +697,7 @@
             // 
             this.bindingNavigatorPositionItem2.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem2.AutoSize = false;
+            this.bindingNavigatorPositionItem2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem2.Name = "bindingNavigatorPositionItem2";
             this.bindingNavigatorPositionItem2.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem2.Text = "0";
@@ -812,6 +815,40 @@
             this.tabPage1.Text = "Исполнитель";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(240, 349);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(244, 143);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Редактирование";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Код исполнителя:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Подразделение:";
+            // 
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.исполнителиBindingSource2, "KI", true));
@@ -826,6 +863,40 @@
             this.исполнителиBindingSource2.DataMember = "Исполнители";
             this.исполнителиBindingSource2.DataSource = this.bindingSource1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "ФИО:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.исполнителиBindingSource2, "P", true));
+            this.comboBox1.DataSource = this.подразделениеBindingSource1;
+            this.comboBox1.DisplayMember = "P";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(107, 83);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.ValueMember = "KP";
+            // 
+            // подразделениеBindingSource1
+            // 
+            this.подразделениеBindingSource1.DataMember = "Подразделение";
+            this.подразделениеBindingSource1.DataSource = this.bindingSource1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.исполнителиBindingSource2, "I", true));
+            this.textBox1.Location = new System.Drawing.Point(54, 54);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(174, 20);
+            this.textBox1.TabIndex = 3;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(153, 110);
@@ -835,14 +906,6 @@
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.исполнителиBindingSource2, "I", true));
-            this.textBox1.Location = new System.Drawing.Point(54, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 3;
             // 
             // bindingNavigator1
             // 
@@ -931,6 +994,7 @@
             // 
             this.bindingNavigatorPositionItem3.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem3.AutoSize = false;
+            this.bindingNavigatorPositionItem3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem3.Name = "bindingNavigatorPositionItem3";
             this.bindingNavigatorPositionItem3.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem3.Text = "0";
@@ -964,26 +1028,8 @@
             this.bindingNavigatorSeparator11.Name = "bindingNavigatorSeparator11";
             this.bindingNavigatorSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.исполнителиBindingSource2, "P", true));
-            this.comboBox1.DataSource = this.подразделениеBindingSource1;
-            this.comboBox1.DisplayMember = "P";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 83);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.ValueMember = "KP";
-            // 
-            // подразделениеBindingSource1
-            // 
-            this.подразделениеBindingSource1.DataMember = "Подразделение";
-            this.подразделениеBindingSource1.DataSource = this.bindingSource1;
-            // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1006,28 +1052,24 @@
             this.kIDataGridViewTextBoxColumn.DataPropertyName = "KI";
             this.kIDataGridViewTextBoxColumn.HeaderText = "KI";
             this.kIDataGridViewTextBoxColumn.Name = "kIDataGridViewTextBoxColumn";
-            this.kIDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDataGridViewTextBoxColumn
             // 
             this.iDataGridViewTextBoxColumn.DataPropertyName = "I";
             this.iDataGridViewTextBoxColumn.HeaderText = "I";
             this.iDataGridViewTextBoxColumn.Name = "iDataGridViewTextBoxColumn";
-            this.iDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kodPDataGridViewTextBoxColumn
             // 
             this.kodPDataGridViewTextBoxColumn.DataPropertyName = "Kod_P";
             this.kodPDataGridViewTextBoxColumn.HeaderText = "Kod_P";
             this.kodPDataGridViewTextBoxColumn.Name = "kodPDataGridViewTextBoxColumn";
-            this.kodPDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // P
             // 
             this.P.DataPropertyName = "P";
             this.P.HeaderText = "P";
             this.P.Name = "P";
-            this.P.ReadOnly = true;
             // 
             // авторыTableAdapter
             // 
@@ -1054,49 +1096,6 @@
             // 
             this.исполнителиBindingSource1.DataMember = "Исполнители";
             this.исполнителиBindingSource1.DataSource = this.bindingSource1;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(240, 349);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(244, 143);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Редактирование";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "ФИО:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Подразделение:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Код исполнителя:";
             // 
             // Form1
             // 
@@ -1139,17 +1138,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.unitsDataGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.подразделениеBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.подразделениеBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKИсполнителиПодразделение1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.исполнителиBindingSource1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
