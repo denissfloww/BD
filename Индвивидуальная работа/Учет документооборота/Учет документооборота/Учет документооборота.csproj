@@ -56,6 +56,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +102,17 @@
     </None>
     <None Include="DBDataSet1.xss">
       <DependentUpon>DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet2.xsc">
+      <DependentUpon>DBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet2.xss">
+      <DependentUpon>DBDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

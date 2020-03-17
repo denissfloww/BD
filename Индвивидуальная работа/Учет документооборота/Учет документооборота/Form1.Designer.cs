@@ -108,7 +108,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem3 = new System.Windows.Forms.ToolStripButton();
             this.исполнителиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem3 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem3 = new System.Windows.Forms.ToolStripButton();
@@ -131,6 +130,7 @@
             this.исполнителиTableAdapter = new Учет_документооборота.DBDataSetTableAdapters.ИсполнителиTableAdapter();
             this.fKИсполнителиПодразделение1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.исполнителиBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.authors.SuspendLayout();
             this.authorsGroupBox.SuspendLayout();
@@ -297,6 +297,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Удалить";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -909,7 +910,7 @@
             // 
             // bindingNavigator1
             // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem3;
+            this.bindingNavigator1.AddNewItem = null;
             this.bindingNavigator1.BindingSource = this.исполнителиBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem3;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem3;
@@ -923,8 +924,8 @@
             this.bindingNavigatorMoveNextItem3,
             this.bindingNavigatorMoveLastItem3,
             this.bindingNavigatorSeparator11,
-            this.bindingNavigatorAddNewItem3,
-            this.bindingNavigatorDeleteItem3});
+            this.bindingNavigatorDeleteItem3,
+            this.toolStripButton1});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem3;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem3;
@@ -935,16 +936,6 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(675, 25);
             this.bindingNavigator1.TabIndex = 2;
             this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem3
-            // 
-            this.bindingNavigatorAddNewItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem3.Image")));
-            this.bindingNavigatorAddNewItem3.Name = "bindingNavigatorAddNewItem3";
-            this.bindingNavigatorAddNewItem3.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem3.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem3.Text = "Добавить";
-            this.bindingNavigatorAddNewItem3.Click += new System.EventHandler(this.bindingNavigatorAddNewItem3_Click);
             // 
             // исполнителиBindingSource
             // 
@@ -966,6 +957,7 @@
             this.bindingNavigatorDeleteItem3.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem3.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem3.Text = "Удалить";
+            this.bindingNavigatorDeleteItem3.Click += new System.EventHandler(this.bindingNavigatorDeleteItem3_Click);
             // 
             // bindingNavigatorMoveFirstItem3
             // 
@@ -1052,24 +1044,28 @@
             this.kIDataGridViewTextBoxColumn.DataPropertyName = "KI";
             this.kIDataGridViewTextBoxColumn.HeaderText = "KI";
             this.kIDataGridViewTextBoxColumn.Name = "kIDataGridViewTextBoxColumn";
+            this.kIDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iDataGridViewTextBoxColumn
             // 
             this.iDataGridViewTextBoxColumn.DataPropertyName = "I";
             this.iDataGridViewTextBoxColumn.HeaderText = "I";
             this.iDataGridViewTextBoxColumn.Name = "iDataGridViewTextBoxColumn";
+            this.iDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kodPDataGridViewTextBoxColumn
             // 
             this.kodPDataGridViewTextBoxColumn.DataPropertyName = "Kod_P";
             this.kodPDataGridViewTextBoxColumn.HeaderText = "Kod_P";
             this.kodPDataGridViewTextBoxColumn.Name = "kodPDataGridViewTextBoxColumn";
+            this.kodPDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // P
             // 
             this.P.DataPropertyName = "P";
             this.P.HeaderText = "P";
             this.P.Name = "P";
+            this.P.ReadOnly = true;
             // 
             // авторыTableAdapter
             // 
@@ -1096,6 +1092,16 @@
             // 
             this.исполнителиBindingSource1.DataMember = "Исполнители";
             this.исполнителиBindingSource1.DataSource = this.bindingSource1;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Form1
             // 
@@ -1238,7 +1244,6 @@
         private System.Windows.Forms.BindingSource исполнителиBindingSource1;
         private System.Windows.Forms.BindingSource исполнителиBindingSource2;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem3;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem3;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem3;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem3;
@@ -1256,6 +1261,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

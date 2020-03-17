@@ -66,7 +66,7 @@ namespace Учет_документооборота
         //Data Source=LAPTOP-H7SB8JUI\SQLEXPRESS;Initial Catalog=DB;Integrated Security=True
         private void button1_Click_2(object sender, EventArgs e)
         {                   
-            String connectionString = "Data Source=LAPTOP-H7SB8JUI\\SQLEXPRESS;Initial Catalog=DB;Integrated Security=True";
+            String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
             var connect = new SqlConnection(connectionString);
             connect.Open();
             string idUnits = comboBox1.SelectedValue.ToString();         
@@ -80,6 +80,31 @@ namespace Учет_документооборота
 
         private void bindingNavigatorAddNewItem3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void bindingNavigatorDeleteItem3_Click(object sender, EventArgs e)
+        {
+            String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+            var connect = new SqlConnection(connectionString);
+            connect.Open();
+            string idUnits = comboBox1.SelectedValue.ToString();
+            string sqlQuery = $"DELETE FROM DB.dbo.Исполнители WHERE KI='{textBox2.Text}'";
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sqlQuery;
+            command.ExecuteNonQuery();
+            connect.Close();
+            this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            
 
         }
     }
