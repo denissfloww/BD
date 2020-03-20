@@ -2,9 +2,10 @@
 <xs:schema id="DBDataSet" targetNamespace="http://tempuri.org/DBDataSet.xsd" xmlns:mstns="http://tempuri.org/DBDataSet.xsd" xmlns="http://tempuri.org/DBDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Учет_документооборота.Properties.Settings.GlobalReference.Default.DBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Учет_документооборота.Properties.Settings.GlobalReference.Default.DBConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="АвторыTableAdapter" GeneratorDataComponentClassName="АвторыTableAdapter" Name="Авторы" UserDataComponentName="АвторыTableAdapter">
@@ -149,7 +150,7 @@ FROM            Исполнители INNER JOIN
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ПодразделениеTableAdapter" GeneratorDataComponentClassName="ПодразделениеTableAdapter" Name="Подразделение" UserDataComponentName="ПодразделениеTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DBConnectionString (Settings)" DbObjectName="DB.dbo.Подразделение" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DBConnectionString1 (Settings)" DbObjectName="DB.dbo.Подразделение" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Подразделение] WHERE (([KP] = @Original_KP) AND ((@IsNull_P = 1 AND [P] IS NULL) OR ([P] = @Original_P)))</CommandText>
@@ -170,7 +171,7 @@ SELECT KP, P FROM Подразделение WHERE (KP = SCOPE_IDENTITY())</Comm
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT KP, P FROM dbo.Подразделение</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -330,7 +331,7 @@ SELECT KT, T FROM [Тип документа] WHERE (KT = @KT)</CommandText>
   <xs:element name="DBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBDataSet" msprop:Generator_UserDSName="DBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Авторы" msprop:Generator_TableClassName="АвторыDataTable" msprop:Generator_TableVarName="tableАвторы" msprop:Generator_RowChangedName="АвторыRowChanged" msprop:Generator_TablePropName="Авторы" msprop:Generator_RowDeletingName="АвторыRowDeleting" msprop:Generator_RowChangingName="АвторыRowChanging" msprop:Generator_RowEvHandlerName="АвторыRowChangeEventHandler" msprop:Generator_RowDeletedName="АвторыRowDeleted" msprop:Generator_RowClassName="АвторыRow" msprop:Generator_UserTableName="Авторы" msprop:Generator_RowEvArgName="АвторыRowChangeEvent">
+        <xs:element name="Авторы" msprop:Generator_TableClassName="АвторыDataTable" msprop:Generator_TableVarName="tableАвторы" msprop:Generator_TablePropName="Авторы" msprop:Generator_RowDeletingName="АвторыRowDeleting" msprop:Generator_RowChangingName="АвторыRowChanging" msprop:Generator_RowEvHandlerName="АвторыRowChangeEventHandler" msprop:Generator_RowDeletedName="АвторыRowDeleted" msprop:Generator_UserTableName="Авторы" msprop:Generator_RowChangedName="АвторыRowChanged" msprop:Generator_RowEvArgName="АвторыRowChangeEvent" msprop:Generator_RowClassName="АвторыRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="KA" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKA" msprop:Generator_ColumnPropNameInRow="KA" msprop:Generator_ColumnPropNameInTable="KAColumn" msprop:Generator_UserColumnName="KA" type="xs:int" />
@@ -344,7 +345,7 @@ SELECT KT, T FROM [Тип документа] WHERE (KT = @KT)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Документы" msprop:Generator_TableClassName="ДокументыDataTable" msprop:Generator_TableVarName="tableДокументы" msprop:Generator_RowChangedName="ДокументыRowChanged" msprop:Generator_TablePropName="Документы" msprop:Generator_RowDeletingName="ДокументыRowDeleting" msprop:Generator_RowChangingName="ДокументыRowChanging" msprop:Generator_RowEvHandlerName="ДокументыRowChangeEventHandler" msprop:Generator_RowDeletedName="ДокументыRowDeleted" msprop:Generator_RowClassName="ДокументыRow" msprop:Generator_UserTableName="Документы" msprop:Generator_RowEvArgName="ДокументыRowChangeEvent">
+        <xs:element name="Документы" msprop:Generator_TableClassName="ДокументыDataTable" msprop:Generator_TableVarName="tableДокументы" msprop:Generator_TablePropName="Документы" msprop:Generator_RowDeletingName="ДокументыRowDeleting" msprop:Generator_RowChangingName="ДокументыRowChanging" msprop:Generator_RowEvHandlerName="ДокументыRowChangeEventHandler" msprop:Generator_RowDeletedName="ДокументыRowDeleted" msprop:Generator_UserTableName="Документы" msprop:Generator_RowChangedName="ДокументыRowChanged" msprop:Generator_RowEvArgName="ДокументыRowChangeEvent" msprop:Generator_RowClassName="ДокументыRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="KD" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKD" msprop:Generator_ColumnPropNameInRow="KD" msprop:Generator_ColumnPropNameInTable="KDColumn" msprop:Generator_UserColumnName="KD" type="xs:int" />
@@ -361,7 +362,7 @@ SELECT KT, T FROM [Тип документа] WHERE (KT = @KT)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Исполнители" msprop:Generator_TableClassName="ИсполнителиDataTable" msprop:Generator_TableVarName="tableИсполнители" msprop:Generator_RowChangedName="ИсполнителиRowChanged" msprop:Generator_TablePropName="Исполнители" msprop:Generator_RowDeletingName="ИсполнителиRowDeleting" msprop:Generator_RowChangingName="ИсполнителиRowChanging" msprop:Generator_RowEvHandlerName="ИсполнителиRowChangeEventHandler" msprop:Generator_RowDeletedName="ИсполнителиRowDeleted" msprop:Generator_RowClassName="ИсполнителиRow" msprop:Generator_UserTableName="Исполнители" msprop:Generator_RowEvArgName="ИсполнителиRowChangeEvent">
+        <xs:element name="Исполнители" msprop:Generator_TableClassName="ИсполнителиDataTable" msprop:Generator_TableVarName="tableИсполнители" msprop:Generator_TablePropName="Исполнители" msprop:Generator_RowDeletingName="ИсполнителиRowDeleting" msprop:Generator_RowChangingName="ИсполнителиRowChanging" msprop:Generator_RowEvHandlerName="ИсполнителиRowChangeEventHandler" msprop:Generator_RowDeletedName="ИсполнителиRowDeleted" msprop:Generator_UserTableName="Исполнители" msprop:Generator_RowChangedName="ИсполнителиRowChanged" msprop:Generator_RowEvArgName="ИсполнителиRowChangeEvent" msprop:Generator_RowClassName="ИсполнителиRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="KI" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKI" msprop:Generator_ColumnPropNameInRow="KI" msprop:Generator_ColumnPropNameInTable="KIColumn" msprop:Generator_UserColumnName="KI" type="xs:int" />
@@ -376,28 +377,28 @@ SELECT KT, T FROM [Тип документа] WHERE (KT = @KT)</CommandText>
               <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Подразделение" msprop:Generator_TableClassName="ПодразделениеDataTable" msprop:Generator_TableVarName="tableПодразделение" msprop:Generator_RowChangedName="ПодразделениеRowChanged" msprop:Generator_TablePropName="Подразделение" msprop:Generator_RowDeletingName="ПодразделениеRowDeleting" msprop:Generator_RowChangingName="ПодразделениеRowChanging" msprop:Generator_RowEvHandlerName="ПодразделениеRowChangeEventHandler" msprop:Generator_RowDeletedName="ПодразделениеRowDeleted" msprop:Generator_RowClassName="ПодразделениеRow" msprop:Generator_UserTableName="Подразделение" msprop:Generator_RowEvArgName="ПодразделениеRowChangeEvent">
+        <xs:element name="Подразделение" msprop:Generator_TableClassName="ПодразделениеDataTable" msprop:Generator_TableVarName="tableПодразделение" msprop:Generator_TablePropName="Подразделение" msprop:Generator_RowDeletingName="ПодразделениеRowDeleting" msprop:Generator_RowChangingName="ПодразделениеRowChanging" msprop:Generator_RowEvHandlerName="ПодразделениеRowChangeEventHandler" msprop:Generator_RowDeletedName="ПодразделениеRowDeleted" msprop:Generator_UserTableName="Подразделение" msprop:Generator_RowChangedName="ПодразделениеRowChanged" msprop:Generator_RowEvArgName="ПодразделениеRowChangeEvent" msprop:Generator_RowClassName="ПодразделениеRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="KP" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKP" msprop:Generator_ColumnPropNameInRow="KP" msprop:Generator_ColumnPropNameInTable="KPColumn" msprop:Generator_UserColumnName="KP" type="xs:int" />
               <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Поручения" msprop:Generator_TableClassName="ПорученияDataTable" msprop:Generator_TableVarName="tableПоручения" msprop:Generator_RowChangedName="ПорученияRowChanged" msprop:Generator_TablePropName="Поручения" msprop:Generator_RowDeletingName="ПорученияRowDeleting" msprop:Generator_RowChangingName="ПорученияRowChanging" msprop:Generator_RowEvHandlerName="ПорученияRowChangeEventHandler" msprop:Generator_RowDeletedName="ПорученияRowDeleted" msprop:Generator_RowClassName="ПорученияRow" msprop:Generator_UserTableName="Поручения" msprop:Generator_RowEvArgName="ПорученияRowChangeEvent">
+        <xs:element name="Поручения" msprop:Generator_TableClassName="ПорученияDataTable" msprop:Generator_TableVarName="tableПоручения" msprop:Generator_TablePropName="Поручения" msprop:Generator_RowDeletingName="ПорученияRowDeleting" msprop:Generator_RowChangingName="ПорученияRowChanging" msprop:Generator_RowEvHandlerName="ПорученияRowChangeEventHandler" msprop:Generator_RowDeletedName="ПорученияRowDeleted" msprop:Generator_UserTableName="Поручения" msprop:Generator_RowChangedName="ПорученияRowChanged" msprop:Generator_RowEvArgName="ПорученияRowChangeEvent" msprop:Generator_RowClassName="ПорученияRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="N" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnN" msprop:Generator_ColumnPropNameInRow="N" msprop:Generator_ColumnPropNameInTable="NColumn" msprop:Generator_UserColumnName="N" type="xs:int" />
@@ -415,7 +416,7 @@ SELECT KT, T FROM [Тип документа] WHERE (KT = @KT)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Тип_x0020_документа" msprop:Generator_TableClassName="Тип_документаDataTable" msprop:Generator_TableVarName="tableТип_документа" msprop:Generator_RowChangedName="Тип_документаRowChanged" msprop:Generator_TablePropName="Тип_документа" msprop:Generator_RowDeletingName="Тип_документаRowDeleting" msprop:Generator_RowChangingName="Тип_документаRowChanging" msprop:Generator_RowEvHandlerName="Тип_документаRowChangeEventHandler" msprop:Generator_RowDeletedName="Тип_документаRowDeleted" msprop:Generator_RowClassName="Тип_документаRow" msprop:Generator_UserTableName="Тип документа" msprop:Generator_RowEvArgName="Тип_документаRowChangeEvent">
+        <xs:element name="Тип_x0020_документа" msprop:Generator_TableClassName="Тип_документаDataTable" msprop:Generator_TableVarName="tableТип_документа" msprop:Generator_TablePropName="Тип_документа" msprop:Generator_RowDeletingName="Тип_документаRowDeleting" msprop:Generator_RowChangingName="Тип_документаRowChanging" msprop:Generator_RowEvHandlerName="Тип_документаRowChangeEventHandler" msprop:Generator_RowDeletedName="Тип_документаRowDeleted" msprop:Generator_UserTableName="Тип документа" msprop:Generator_RowChangedName="Тип_документаRowChanged" msprop:Generator_RowEvArgName="Тип_документаRowChangeEvent" msprop:Generator_RowClassName="Тип_документаRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="KT" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKT" msprop:Generator_ColumnPropNameInRow="KT" msprop:Generator_ColumnPropNameInTable="KTColumn" msprop:Generator_UserColumnName="KT" type="xs:int" />
@@ -458,11 +459,11 @@ SELECT KT, T FROM [Тип документа] WHERE (KT = @KT)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Документы_Авторы" msdata:parent="Авторы" msdata:child="Документы" msdata:parentkey="KA" msdata:childkey="Kod_A" msprop:Generator_UserChildTable="Документы" msprop:Generator_ChildPropName="GetДокументыRows" msprop:Generator_UserRelationName="FK_Документы_Авторы" msprop:Generator_RelationVarName="relationFK_Документы_Авторы" msprop:Generator_UserParentTable="Авторы" msprop:Generator_ParentPropName="АвторыRow" />
-      <msdata:Relationship name="FK_Документы_Тип_x0020_документа" msdata:parent="Тип_x0020_документа" msdata:child="Документы" msdata:parentkey="KT" msdata:childkey="Kod_T" msprop:Generator_UserChildTable="Документы" msprop:Generator_ChildPropName="GetДокументыRows" msprop:Generator_UserRelationName="FK_Документы_Тип документа" msprop:Generator_ParentPropName="Тип_документаRow" msprop:Generator_RelationVarName="relationFK_Документы_Тип_документа" msprop:Generator_UserParentTable="Тип документа" />
-      <msdata:Relationship name="FK_Исполнители_Подразделение1" msdata:parent="Подразделение" msdata:child="Исполнители" msdata:parentkey="KP" msdata:childkey="Kod_P" msprop:Generator_UserChildTable="Исполнители" msprop:Generator_ChildPropName="GetИсполнителиRows" msprop:Generator_UserRelationName="FK_Исполнители_Подразделение1" msprop:Generator_ParentPropName="ПодразделениеRow" msprop:Generator_RelationVarName="relationFK_Исполнители_Подразделение1" msprop:Generator_UserParentTable="Подразделение" />
-      <msdata:Relationship name="FK_Поручения_Документы" msdata:parent="Документы" msdata:child="Поручения" msdata:parentkey="KD" msdata:childkey="Kod_D" msprop:Generator_UserChildTable="Поручения" msprop:Generator_ChildPropName="GetПорученияRows" msprop:Generator_UserRelationName="FK_Поручения_Документы" msprop:Generator_RelationVarName="relationFK_Поручения_Документы" msprop:Generator_UserParentTable="Документы" msprop:Generator_ParentPropName="ДокументыRow" />
-      <msdata:Relationship name="FK_Поручения_Исполнители" msdata:parent="Исполнители" msdata:child="Поручения" msdata:parentkey="KI" msdata:childkey="Kod_I" msprop:Generator_UserChildTable="Поручения" msprop:Generator_ChildPropName="GetПорученияRows" msprop:Generator_UserRelationName="FK_Поручения_Исполнители" msprop:Generator_RelationVarName="relationFK_Поручения_Исполнители" msprop:Generator_UserParentTable="Исполнители" msprop:Generator_ParentPropName="ИсполнителиRow" />
+      <msdata:Relationship name="FK_Документы_Авторы" msdata:parent="Авторы" msdata:child="Документы" msdata:parentkey="KA" msdata:childkey="Kod_A" msprop:Generator_UserChildTable="Документы" msprop:Generator_ChildPropName="GetДокументыRows" msprop:Generator_UserRelationName="FK_Документы_Авторы" msprop:Generator_ParentPropName="АвторыRow" msprop:Generator_RelationVarName="relationFK_Документы_Авторы" msprop:Generator_UserParentTable="Авторы" />
+      <msdata:Relationship name="FK_Документы_Тип_x0020_документа" msdata:parent="Тип_x0020_документа" msdata:child="Документы" msdata:parentkey="KT" msdata:childkey="Kod_T" msprop:Generator_UserChildTable="Документы" msprop:Generator_ChildPropName="GetДокументыRows" msprop:Generator_UserRelationName="FK_Документы_Тип документа" msprop:Generator_RelationVarName="relationFK_Документы_Тип_документа" msprop:Generator_UserParentTable="Тип документа" msprop:Generator_ParentPropName="Тип_документаRow" />
+      <msdata:Relationship name="FK_Исполнители_Подразделение1" msdata:parent="Подразделение" msdata:child="Исполнители" msdata:parentkey="KP" msdata:childkey="Kod_P" msprop:Generator_UserChildTable="Исполнители" msprop:Generator_ChildPropName="GetИсполнителиRows" msprop:Generator_UserRelationName="FK_Исполнители_Подразделение1" msprop:Generator_RelationVarName="relationFK_Исполнители_Подразделение1" msprop:Generator_UserParentTable="Подразделение" msprop:Generator_ParentPropName="ПодразделениеRow" />
+      <msdata:Relationship name="FK_Поручения_Документы" msdata:parent="Документы" msdata:child="Поручения" msdata:parentkey="KD" msdata:childkey="Kod_D" msprop:Generator_UserChildTable="Поручения" msprop:Generator_ChildPropName="GetПорученияRows" msprop:Generator_UserRelationName="FK_Поручения_Документы" msprop:Generator_ParentPropName="ДокументыRow" msprop:Generator_RelationVarName="relationFK_Поручения_Документы" msprop:Generator_UserParentTable="Документы" />
+      <msdata:Relationship name="FK_Поручения_Исполнители" msdata:parent="Исполнители" msdata:child="Поручения" msdata:parentkey="KI" msdata:childkey="Kod_I" msprop:Generator_UserChildTable="Поручения" msprop:Generator_ChildPropName="GetПорученияRows" msprop:Generator_UserRelationName="FK_Поручения_Исполнители" msprop:Generator_ParentPropName="ИсполнителиRow" msprop:Generator_RelationVarName="relationFK_Поручения_Исполнители" msprop:Generator_UserParentTable="Исполнители" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

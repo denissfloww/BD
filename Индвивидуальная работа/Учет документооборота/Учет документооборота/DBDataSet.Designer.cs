@@ -1267,7 +1267,7 @@ namespace Учет_документооборота {
                 this.columnKI.Unique = true;
                 this.columnI.MaxLength = 255;
                 this.columnKod_P.AllowDBNull = false;
-                this.columnP.MaxLength = 10;
+                this.columnP.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1544,7 +1544,7 @@ namespace Учет_документооборота {
                 this.columnKP.AllowDBNull = false;
                 this.columnKP.ReadOnly = true;
                 this.columnKP.Unique = true;
-                this.columnP.MaxLength = 10;
+                this.columnP.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4243,7 +4243,7 @@ SELECT KD, ND, Kod_A, Kod_T, D FROM Документы WHERE (KD = @KD)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Учет_документооборота.Properties.Settings.Default.DBConnectionString;
+            this._connection.ConnectionString = global::Учет_документооборота.Properties.Settings.Default.DBConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

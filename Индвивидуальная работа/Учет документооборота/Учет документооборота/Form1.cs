@@ -90,22 +90,175 @@ namespace Учет_документооборота
 
         private void bindingNavigatorDeleteItem3_Click(object sender, EventArgs e)
         {
-            String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
-            var connect = new SqlConnection(connectionString);
-            connect.Open();
-            string idUnits = comboBox1.SelectedValue.ToString();
-            string sqlQuery = $"DELETE FROM DB.dbo.Исполнители WHERE KI='{textBox2.Text}'";
-            SqlCommand command = connect.CreateCommand();
-            command.CommandText = sqlQuery;
-            command.ExecuteNonQuery();
-            connect.Close();
-            this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
+           
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            
+            textBox2.Clear();
+            textBox1.Clear();
+            button1.Enabled = false;
+            button2.Enabled = true;
+            label7.Visible = true;
+            if (dataGridView1.Rows.Count == 0)
+            {
+                textBox2.Text = "1";
+            }
+            else
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string sqlQuery = $"SELECT MAX(KI) FROM DB.dbo.Исполнители;";
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sqlQuery;
+                int ki = (int)command.ExecuteScalar();
+                command.ExecuteNonQuery();
+                connect.Close();
+                textBox2.Text = (ki + 1).ToString();
+            }           
+        }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {          
+            if (textBox1.Text == "") 
+            {
+                MessageBox.Show("Заполните все поля!");               
+                textBox1.BackColor = Color.FromArgb(214, 81, 104);
+            }
+            else
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string idUnits = comboBox1.SelectedValue.ToString();              
+                string sqlQuery = $"INSERT INTO DB.dbo.Исполнители(I,Kod_P) VALUES ('{textBox1.Text}','{idUnits}');";
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sqlQuery;
+                command.ExecuteNonQuery();
+                connect.Close();
+                this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
+                button1.Enabled = true;
+                button2.Enabled = false;
+                label7.Visible = false;
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            authorsTextBox.Clear();           
+            authorsSave.Enabled = false;
+            authorsAdd.Enabled = true;
+            label4.Visible = true;
+        }
+
+        private void authorsAdd_Click(object sender, EventArgs e)
+        {
+            if (authorsTextBox.Text == "")
+            {
+                MessageBox.Show("Заполните все поля!");
+                authorsTextBox.BackColor = Color.FromArgb(214, 81, 104);
+            }
+            else
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();               
+                string sqlQuery = $"INSERT INTO DB.dbo.Авторы(A) VALUES ('{authorsTextBox.Text}');";
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sqlQuery;
+                command.ExecuteNonQuery();
+                connect.Close();
+                this.авторыTableAdapter.Fill(this.dBDataSet.Авторы);
+                authorsSave.Enabled = true;
+                authorsAdd.Enabled = false;
+                label4.Visible = false;
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            typeTextBox.Clear();
+            saveTypeOfDoc.Enabled = false;
+            AddTypeOfDoc.Enabled = true;
+            label5.Visible = true;
+        }
+
+        private void AddTypeOfDoc_Click(object sender, EventArgs e)
+        {
+            if (typeTextBox.Text == "")
+            {
+                MessageBox.Show("Заполните все поля!");
+                typeTextBox.BackColor = Color.FromArgb(214, 81, 104);
+            }
+            else
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string sqlQuery = $"INSERT INTO DB.dbo.[Тип документа](T) VALUES ('{typeTextBox.Text}');";
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sqlQuery;
+                command.ExecuteNonQuery();
+                connect.Close();
+                this.тип_документаTableAdapter.Fill(this.dBDataSet.Тип_документа);
+                saveTypeOfDoc.Enabled = true;
+                AddTypeOfDoc.Enabled = false;
+                label5.Visible = false;
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            unitsTextBox.Clear();
+            unitsSaveButton.Enabled = false;
+            unitsAddButton.Enabled = true;
+            label6.Visible = true;
+        }
+
+        private void unitsAddButton_Click(object sender, EventArgs e)
+        {
+            if (unitsTextBox.Text == "")
+            {
+                MessageBox.Show("Заполните все поля!");
+                unitsTextBox.BackColor = Color.FromArgb(214, 81, 104);
+            }
+            else
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string sqlQuery = $"INSERT INTO DB.dbo.[Подразделение](P) VALUES ('{unitsTextBox.Text}');";
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sqlQuery;
+                command.ExecuteNonQuery();
+                connect.Close();
+                this.подразделениеTableAdapter.Fill(this.dBDataSet.Подразделение);
+                unitsSaveButton.Enabled = true;
+                unitsAddButton.Enabled = false;
+                label6.Visible = false;
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count != 0)
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string idUnits = comboBox1.SelectedValue.ToString();
+                string sqlQuery = $"DELETE FROM DB.dbo.Исполнители WHERE KI='{textBox2.Text}'";
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sqlQuery;
+                command.ExecuteNonQuery();
+                connect.Close();
+                this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
+            }
+            else
+            {
+                toolStripButton5.Enabled = false;
+            }
         }
     }
 }
