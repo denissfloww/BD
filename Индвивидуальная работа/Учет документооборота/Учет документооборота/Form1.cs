@@ -52,6 +52,11 @@ namespace Учет_документооборота
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.Авторы". При необходимости она может быть перемещена или удалена.
             this.авторыTableAdapter.Fill(this.dBDataSet.Авторы);
             //this.proc_p1TableAdapter.Fill(this.dBDataSet10.proc_p1, comboBox4.Text);
+            ComboFill();
+        }
+
+        public void ComboFill()
+        {
             String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
             var connect = new SqlConnection(connectionString);
             SqlCommand myCommand = connect.CreateCommand();
@@ -70,14 +75,13 @@ namespace Учет_документооборота
             comboBox4.AutoCompleteCustomSource = col;
             connect.Close();
             this.proc_p1TableAdapter.Fill(this.dBDataSet10.proc_p1, comboBox4.Text);
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            авторыTableAdapter.Update(dBDataSet);
+            авторыTableAdapter.Update(dBDataSet);           
             authorsGridView.ClearSelection();
+            ComboFill();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -218,6 +222,7 @@ namespace Учет_документооборота
                 authorsSave.Enabled = true;
                 authorsAdd.Enabled = false;
                 label4.Visible = false;
+                ComboFill();
             }
         }
 
