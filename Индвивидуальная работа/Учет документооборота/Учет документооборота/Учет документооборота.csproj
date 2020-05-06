@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBDataSet.cs">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -56,10 +59,68 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet13.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet4.cs">
+      <DependentUpon>DBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -104,6 +165,50 @@
     <None Include="DBDataSet1.xss">
       <DependentUpon>DBDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="DBDataSet10.xsc">
+      <DependentUpon>DBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet10.xss">
+      <DependentUpon>DBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet11.xsc">
+      <DependentUpon>DBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet11.xss">
+      <DependentUpon>DBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet12.xsc">
+      <DependentUpon>DBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet12.xss">
+      <DependentUpon>DBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet13.xsc">
+      <DependentUpon>DBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet13.xss">
+      <DependentUpon>DBDataSet13.xsd</DependentUpon>
+    </None>
     <None Include="DBDataSet2.xsc">
       <DependentUpon>DBDataSet2.xsd</DependentUpon>
     </None>
@@ -114,6 +219,83 @@
     </None>
     <None Include="DBDataSet2.xss">
       <DependentUpon>DBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet3.xsc">
+      <DependentUpon>DBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet3.xss">
+      <DependentUpon>DBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet4.xsc">
+      <DependentUpon>DBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet4.xss">
+      <DependentUpon>DBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet5.xsc">
+      <DependentUpon>DBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet5.xss">
+      <DependentUpon>DBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet6.xsc">
+      <DependentUpon>DBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet6.xss">
+      <DependentUpon>DBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet7.xsc">
+      <DependentUpon>DBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet7.xss">
+      <DependentUpon>DBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet8.xsc">
+      <DependentUpon>DBDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet8.xss">
+      <DependentUpon>DBDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet9.xsc">
+      <DependentUpon>DBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet9.xss">
+      <DependentUpon>DBDataSet9.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
