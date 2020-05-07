@@ -52,17 +52,18 @@ namespace Учет_документооборота
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDataSet.Авторы". При необходимости она может быть перемещена или удалена.
             this.авторыTableAdapter.Fill(this.dBDataSet.Авторы);
             //this.proc_p1TableAdapter.Fill(this.dBDataSet10.proc_p1, comboBox4.Text);
-            ComboFill();
+            ComboFill(comboBox4.Text);
         }
 
-        public void ComboFill()
+        public void ComboFill(string Param = "")
         {
             String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
             var connect = new SqlConnection(connectionString);
             SqlCommand myCommand = connect.CreateCommand();
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "[proc_p1]";
-            string Parameter = comboBox4.Text;
+            //string Parameter = comboBox4.Text;
+            string Parameter = Param;            
             myCommand.Parameters.Add("@A", SqlDbType.VarChar, 255);
             myCommand.Parameters["@A"].Value = Parameter;
             connect.Open();
@@ -81,6 +82,7 @@ namespace Учет_документооборота
         {
             авторыTableAdapter.Update(dBDataSet);           
             authorsGridView.ClearSelection();
+            comboBox4.Text = "";
             ComboFill();
         }
 
