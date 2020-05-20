@@ -48,11 +48,13 @@
   <ItemGroup>
     <Compile Include="DBDataSet.cs">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DBDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,14 +147,17 @@
     </Compile>
     <None Include="DBDataSet.xsc">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DBDataSet.xss">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DBDataSet1.xsc">
       <DependentUpon>DBDataSet1.xsd</DependentUpon>

@@ -56,7 +56,7 @@ namespace Учет_документооборота
         }
 
         public void ComboFill(string Param = "")
-        {
+        {          
             String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
             var connect = new SqlConnection(connectionString);
             SqlCommand myCommand = connect.CreateCommand();
@@ -79,15 +79,36 @@ namespace Учет_документооборота
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            авторыTableAdapter.Update(dBDataSet);           
-            authorsGridView.ClearSelection();
-            comboBox4.Text = "";
+        {            
+            String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+            var connect = new SqlConnection(connectionString);
+            connect.Open();
+            string KA = authorsGridView.CurrentRow.Cells[0].Value.ToString();
+            SqlCommand comm = connect.CreateCommand();
+            string A = authorsTextBox.Text;
+            string QueryCheck = $"UPDATE DB.dbo.Авторы SET A = '{A}' WHERE KA = {KA}";           
+            comm.CommandText = QueryCheck;
+            comm.ExecuteNonQuery();
+            connect.Close();
+            авторыTableAdapter.Fill(dBDataSet.Авторы);
+            документыTableAdapter.Fill(dBDataSet.Документы);
             ComboFill();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+            var connect = new SqlConnection(connectionString);
+            connect.Open();
+            string KT = typeOfDocumentGridView.CurrentRow.Cells[0].Value.ToString();
+            SqlCommand comm = connect.CreateCommand();
+            string T = typeTextBox.Text;
+            string QueryCheck = $"UPDATE DB.dbo.[Тип документа] SET T = '{T}' WHERE KT = {KT}";
+            comm.CommandText = QueryCheck;
+            comm.ExecuteNonQuery();
+            connect.Close();
+            авторыTableAdapter.Fill(dBDataSet.Авторы);
+            документыTableAdapter.Fill(dBDataSet.Документы);
             тип_документаTableAdapter.Update(dBDataSet);
             typeOfDocumentGridView.ClearSelection();
         }
@@ -104,6 +125,21 @@ namespace Учет_документооборота
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+            var connect = new SqlConnection(connectionString);
+            connect.Open();
+            string KP = unitsDataGridView.CurrentRow.Cells[0].Value.ToString();
+            SqlCommand comm = connect.CreateCommand();
+            string P = unitsTextBox.Text;
+            string QueryCheck = $"UPDATE DB.dbo.Подразделение SET P = '{P}' WHERE KP = {KP}";
+            comm.CommandText = QueryCheck;
+            comm.ExecuteNonQuery();
+            connect.Close();
+            авторыTableAdapter.Fill(dBDataSet.Авторы);
+            документыTableAdapter.Fill(dBDataSet.Документы);
+            исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+            тип_документаTableAdapter.Update(dBDataSet);
+            typeOfDocumentGridView.ClearSelection();
             подразделениеTableAdapter.Update(dBDataSet);
             unitsDataGridView.ClearSelection();
         }
@@ -135,6 +171,7 @@ namespace Учет_документооборота
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
            
+                
         }
 
         private void bindingNavigatorDeleteItem3_Click(object sender, EventArgs e)
@@ -187,6 +224,8 @@ namespace Учет_документооборота
                 command.ExecuteNonQuery();
                 connect.Close();
                 this.исполнителиTableAdapter.Fill(this.dBDataSet.Исполнители);
+                view_4TableAdapter.Fill(dBDataSet8.View_4);
+                view_2TableAdapter.Fill(dBDataSet6.View_2);
                 save_ispoln.Enabled = true;
                 add_ispoln.Enabled = false;
                 label7.Visible = false;
@@ -289,6 +328,8 @@ namespace Учет_документооборота
                 unitsSaveButton.Enabled = true;
                 unitsAddButton.Enabled = false;
                 label6.Visible = false;
+                view_4TableAdapter.Fill(dBDataSet8.View_4);
+                view_2TableAdapter.Fill(dBDataSet6.View_2);
             }
         }
 
@@ -441,6 +482,8 @@ namespace Учет_документооборота
                 command.ExecuteNonQuery();
                 connect.Close();
                 this.порученияTableAdapter.Fill(this.dBDataSet.Поручения);
+                view_2TableAdapter.Fill(this.dBDataSet6.View_2);
+                view_4TableAdapter.Fill(this.dBDataSet8.View_4);
                 save_mission.Enabled = true;
                 add_misson.Enabled = false;
                 label21.Visible = false;
@@ -465,6 +508,8 @@ namespace Учет_документооборота
                 command.ExecuteNonQuery();
                 connect.Close();
                 this.порученияTableAdapter.Fill(this.dBDataSet.Поручения);
+                this.view_4TableAdapter.Fill(this.dBDataSet8.View_4);              
+                this.view_2TableAdapter.Fill(this.dBDataSet6.View_2);
             }
             else
             {
@@ -498,6 +543,227 @@ namespace Учет_документооборота
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.proc2TableAdapter.Fill(this.dBDataSet13.proc2, Convert.ToInt32(comboBox4.SelectedValue));          
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            if (authorsGridView.Rows.Count != 0)
+            {
+                
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();                
+                string KA = authorsGridView.CurrentRow.Cells[0].Value.ToString();               
+                SqlCommand comm = connect.CreateCommand();
+                string QueryCheck = $"SELECT COUNT(DB.dbo.Документы.Kod_A) FROM DB.dbo.Документы WHERE Kod_A={KA};";
+                comm.CommandText = QueryCheck;
+                int countKA = (int)comm.ExecuteScalar();                
+                comm.ExecuteNonQuery();
+                if (countKA != 0)
+                {                  
+                    if (MessageBox.Show(
+                            "Удаление автора удалит все связанные с ним документы!\nВсе равно удалить?",
+                            "Предупреждение",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes) 
+                    {
+                        string sqlQuery = $"DELETE FROM DB.dbo.Авторы WHERE KA={KA}";
+                        SqlCommand command = connect.CreateCommand();
+                        command.CommandText = sqlQuery;
+                        command.ExecuteNonQuery();
+                        connect.Close();
+                        авторыTableAdapter.Fill(dBDataSet.Авторы);
+                        документыTableAdapter.Fill(dBDataSet.Документы);                        
+                    }
+                }
+                else
+                {
+                    string sqlQuery = $"DELETE FROM DB.dbo.Авторы WHERE KA={KA}";
+                    SqlCommand command = connect.CreateCommand();
+                    command.CommandText = sqlQuery;
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    авторыTableAdapter.Fill(dBDataSet.Авторы);
+                    документыTableAdapter.Fill(dBDataSet.Документы);
+                }                      
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count != 0)
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string KI = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                SqlCommand comm = connect.CreateCommand();
+                string QueryCheck = $"SELECT COUNT(DB.dbo.Поручения.Kod_I) FROM DB.dbo.Поручения WHERE Kod_I={KI};";
+                comm.CommandText = QueryCheck;
+                int countKI = (int)comm.ExecuteScalar();
+                comm.ExecuteNonQuery();
+                if (countKI != 0)
+                {
+                    if (MessageBox.Show(
+                            "Удаление исполнителя удалит все связанные с ним поручения!\nВсе равно удалить?",
+                            "Предупреждение",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+                    {
+                        string sqlQuery = $"DELETE FROM DB.dbo.Исполнители WHERE KI={KI}";
+                        SqlCommand command = connect.CreateCommand();
+                        command.CommandText = sqlQuery;
+                        command.ExecuteNonQuery();
+                        connect.Close();
+                        исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+                        порученияTableAdapter.Fill(dBDataSet.Поручения);
+                        view_4TableAdapter.Fill(dBDataSet8.View_4);
+                        view_2TableAdapter.Fill(dBDataSet6.View_2);
+                    }
+                }
+                else
+                {
+                    string sqlQuery = $"DELETE FROM DB.dbo.Исполнители WHERE KI={KI}";
+                    SqlCommand command = connect.CreateCommand();
+                    command.CommandText = sqlQuery;
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+                    порученияTableAdapter.Fill(dBDataSet.Поручения);
+                    view_4TableAdapter.Fill(dBDataSet8.View_4);
+                    view_2TableAdapter.Fill(dBDataSet6.View_2);
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        private void toolStripButton5_Click_1(object sender, EventArgs e)
+        {
+            if (unitsDataGridView.Rows.Count != 0)
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string KP = unitsDataGridView.CurrentRow.Cells[0].Value.ToString();
+                SqlCommand comm = connect.CreateCommand();
+                string QueryCheck = $"SELECT COUNT(DB.dbo.Исполнители.Kod_P) FROM DB.dbo.Исполнители WHERE Kod_P={KP};";
+                comm.CommandText = QueryCheck;
+                int countKP = (int)comm.ExecuteScalar();
+                comm.ExecuteNonQuery();
+                if (countKP != 0)
+                {
+                    if (MessageBox.Show(
+                            "Удаление подразделения удалит всех работающих в нем исполнителей!\nВсе равно удалить?",
+                            "Предупреждение",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+                    {
+                        string sqlQuery = $"DELETE FROM DB.dbo.Подразделение WHERE KP={KP}";
+                        SqlCommand command = connect.CreateCommand();
+                        command.CommandText = sqlQuery;
+                        command.ExecuteNonQuery();
+                        connect.Close();
+                        подразделениеTableAdapter.Fill(dBDataSet.Подразделение);
+                        исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+                        порученияTableAdapter.Fill(dBDataSet.Поручения);
+                        view_4TableAdapter.Fill(dBDataSet8.View_4);
+                        view_2TableAdapter.Fill(dBDataSet6.View_2);
+                    }
+                }
+                else
+                {
+                    string sqlQuery = $"DELETE FROM DB.dbo.Подразделение WHERE KP={KP}";
+                    SqlCommand command = connect.CreateCommand();
+                    command.CommandText = sqlQuery;
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    подразделениеTableAdapter.Fill(dBDataSet.Подразделение);
+                    исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+                    view_4TableAdapter.Fill(dBDataSet8.View_4);
+                    view_2TableAdapter.Fill(dBDataSet6.View_2);
+                    порученияTableAdapter.Fill(dBDataSet.Поручения);
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        private void bindingNavigatorDeleteItem1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            if (typeOfDocumentGridView.Rows.Count != 0)
+            {
+                String connectionString = "Data Source=DESKTOP-A48PMQ5;Initial Catalog=DB;Integrated Security=True";
+                var connect = new SqlConnection(connectionString);
+                connect.Open();
+                string KT = typeOfDocumentGridView.CurrentRow.Cells[0].Value.ToString();
+                SqlCommand comm = connect.CreateCommand();
+                string QueryCheck = $"SELECT COUNT(DB.dbo.Документы.Kod_T) FROM DB.dbo.Документы WHERE Kod_T={KT};";
+                comm.CommandText = QueryCheck;
+                int countKT = (int)comm.ExecuteScalar();
+                comm.ExecuteNonQuery();
+                if (countKT != 0)
+                {
+                    if (MessageBox.Show(
+                            "Удаление типа документа удалит все документы с данным типом!\nВсе равно удалить?",
+                            "Предупреждение",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+                    {
+                        string sqlQuery = $"DELETE FROM DB.dbo.[Тип документа] WHERE KT={KT}";
+                        SqlCommand command = connect.CreateCommand();
+                        command.CommandText = sqlQuery;
+                        command.ExecuteNonQuery();
+                        connect.Close();
+                        документыTableAdapter.Fill(dBDataSet.Документы);
+                        подразделениеTableAdapter.Fill(dBDataSet.Подразделение);
+                        исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+                        порученияTableAdapter.Fill(dBDataSet.Поручения);
+                        тип_документаTableAdapter.Fill(dBDataSet.Тип_документа);
+                        view_4TableAdapter.Fill(dBDataSet8.View_4);
+                        view_2TableAdapter.Fill(dBDataSet6.View_2);
+                    }
+                }
+                else
+                {
+                    string sqlQuery = $"DELETE FROM DB.dbo.[Тип документа] WHERE KT={KT}";
+                    SqlCommand command = connect.CreateCommand();
+                    command.CommandText = sqlQuery;
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                    документыTableAdapter.Fill(dBDataSet.Документы);
+                    подразделениеTableAdapter.Fill(dBDataSet.Подразделение);
+                    исполнителиTableAdapter.Fill(dBDataSet.Исполнители);
+                    порученияTableAdapter.Fill(dBDataSet.Поручения);
+                    view_4TableAdapter.Fill(dBDataSet8.View_4);
+                    view_2TableAdapter.Fill(dBDataSet6.View_2);
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }
